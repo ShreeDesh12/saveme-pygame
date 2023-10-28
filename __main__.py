@@ -5,16 +5,13 @@ from controller import GameController
 def setup_game():
     pygame.init()
     
-    screen = pygame.display.set_mode((800, 400))
-    clock = pygame.time.Clock()
-    pygame.display.set_caption('saveme-game')
-    
-    game_controller = GameController(game=pygame, screen=screen)
+    game_controller = GameController(game=pygame)
+    game_controller.setup()
     while True:
         for event in pygame.event.get():
             game_controller.process_event(event=event)
 
-        clock.tick(60)
+        game_controller.run_clock()
 
 setup_game()
 
