@@ -15,3 +15,8 @@ class BackgroundController():
         surface.fill(color)
         self.screen.blit(surface, (x_loc, y_loc))
         logging.info('Line created')
+
+    def insert_image(self, file: str, x_loc: int, y_loc: int, width_scale: float = 1, height_scale: float = 1) -> None:
+        image = self.game.image.load(file)
+        scaled_image = self.game.transform.scale(image, (image.get_width() * width_scale, image.get_height() * height_scale))
+        self.screen.blit(scaled_image, (x_loc, y_loc))

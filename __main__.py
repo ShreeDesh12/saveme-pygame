@@ -1,6 +1,6 @@
 import logging
 import pygame
-from sys import exit
+
 from controller import GameController
 
 def setup_logger():
@@ -13,6 +13,7 @@ def setup_game():
     game_controller = GameController(game=pygame)
     game_controller.setup()
     while True:
+        game_controller.run_game()
         for event in pygame.event.get():
             game_controller.process_event(event=event)
 
