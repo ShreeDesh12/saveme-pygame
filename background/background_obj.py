@@ -19,6 +19,6 @@ class BackgroundController():
 
     def insert_image(self, file: str, x_loc: int, y_loc: int, width_scale: float = 1, height_scale: float = 1):
         image = self.game.image.load(file)
-        scaled_image = self.game.transform.scale(image, (image.get_width() * width_scale, image.get_height() * height_scale))
+        scaled_image = self.game.transform.scale(image, (image.get_width() * width_scale, image.get_height() * height_scale)).convert()
         self.screen.blit(scaled_image, (x_loc, y_loc))
         return {'surface': scaled_image, 'loc': (x_loc, y_loc)}
